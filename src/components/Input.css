@@ -1,0 +1,21 @@
+.input {
+  background-color: #008cba; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 100px;
+}
+
+.input:hover {
+  cursor: pointer;
+  background-color: #00a7df;
+}
+
+.input:active {
+  cursor: pointer;
+  background-color: #008cba;
+}

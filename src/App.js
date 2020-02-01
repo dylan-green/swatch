@@ -1,5 +1,6 @@
 import React from 'react';
 //import Dropzone from './Dropzone';
+import Input from './components/Input';
 import './App.css';
 
 class App extends React.Component {
@@ -20,6 +21,9 @@ class App extends React.Component {
   };
 
   fileUploadHandler = () => {
+    if (!this.state.file) {
+      alert('Please select an image');
+    }
     const img = new Image();
     img.src = this.state.file;
 
@@ -68,21 +72,16 @@ class App extends React.Component {
             backgroundImage: `radial-gradient(circle, ${this.state.avgHex}, white)`
           }}>
           <section>
-            <div style={{ padding: '.75em' }}>
-              <p>Upload an image to see the average color.</p>
-              <input type='file' onChange={this.fileSelectHandler}></input>
-              <button onClick={this.fileUploadHandler}>Upload</button>
-            </div>
+            <p>Upload an image to find the average color.</p>
+            <Input
+              title='Browse'
+              onChange={this.fileSelectHandler}
+              file={this.state.file}
+            />
+            <button className='button' onClick={this.fileUploadHandler}>
+              Upload
+            </button>
           </section>
-          {!this.state.image && (
-            <section>
-              {/* {<Dropzone
-                onDrop={() => {
-                  alert('dropped');
-                }}
-              />} */}
-            </section>
-          )}
           <section style={{ padding: '2em' }}>
             <img
               style={{
@@ -94,16 +93,27 @@ class App extends React.Component {
               src={this.state.image}></img>
           </section>
           {this.state.avgHex && (
-            <section style={{ textAlign: 'left' }}>
-              <p>
-                The average hex value is <code>{this.state.avgHex}</code>
-              </p>
-              <p>
-                The average rgb value is <code>{this.state.avgRGB}</code>
-              </p>
-            </section>
+            <ColorDisplay
+              hexVal={this.state.avgHex}
+              rgbVal={this.state.avgRGB}
+            />
           )}
         </header>
+      </div>
+    );
+  }
+}
+
+class ColorDisplay extends React.Component {
+  render() {
+    return (
+      <div style={{ textAlign: 'left' }}>
+        <p>
+          The average hex value is <code>{this.props.hexVal}</code>
+        </p>
+        <p>
+          The average rgb value is <code>{this.props.rgbVal}</code>
+        </p>
       </div>
     );
   }
