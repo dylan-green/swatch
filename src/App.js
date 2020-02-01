@@ -78,7 +78,7 @@ class App extends React.Component {
             <section>
               <Dropzone
                 onDrop={() => {
-                  alert('fuck you!');
+                  alert('dropped');
                 }}
               />
             </section>
