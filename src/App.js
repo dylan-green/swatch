@@ -72,7 +72,7 @@ class App extends React.Component {
             backgroundImage: `radial-gradient(circle, ${this.state.avgHex}, white)`
           }}>
           <section>
-            <p>Upload an image to find the average color.</p>
+            <p>Upload an image to determine the average color.</p>
             <Input
               title='Browse'
               onChange={this.fileSelectHandler}
