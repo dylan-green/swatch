@@ -95,8 +95,12 @@ class App extends React.Component {
           </section>
           {this.state.avgHex && (
             <section style={{ textAlign: 'left' }}>
-              <p>The average hex value is {this.state.avgHex}</p>
-              <p>The average rgb value is {this.state.avgRGB}</p>
+              <p>
+                The average hex value is <code>{this.state.avgHex}</code>
+              </p>
+              <p>
+                The average rgb value is <code>{this.state.avgRGB}</code>
+              </p>
             </section>
           )}
         </header>
