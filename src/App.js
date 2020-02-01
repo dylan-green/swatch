@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropzone from './Dropzone';
+//import Dropzone from './Dropzone';
 import './App.css';
 
 class App extends React.Component {
@@ -76,11 +76,11 @@ class App extends React.Component {
           </section>
           {!this.state.image && (
             <section>
-              <Dropzone
+              {/* {<Dropzone
                 onDrop={() => {
                   alert('dropped');
                 }}
-              />
+              />} */}
             </section>
           )}
           <section style={{ padding: '2em' }}>
