@@ -1,12 +1,17 @@
 import React from 'react';
+import Dropzone from './Dropzone';
 import './App.css';
 
 class App extends React.Component {
-  state = {
-    file: null,
-    image: null,
-    avgColor: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      file: null,
+      image: null,
+      avgHex: null,
+      avgRGB: null
+    };
+  }
 
   fileSelectHandler = event => {
     this.setState({
@@ -45,8 +50,12 @@ class App extends React.Component {
       g = Math.floor(g / p);
       b = Math.floor(b / p);
 
-      const color = `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
-      this.setState({ image: this.state.file, avgColor: color });
+      const hex = `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+      this.setState({
+        image: this.state.file,
+        avgHex: hex,
+        avgRGB: `rgb(${r},${g},${b})`
+      });
     };
   };
 
@@ -56,13 +65,24 @@ class App extends React.Component {
         <header
           className='App-header'
           style={{
-            backgroundImage: `radial-gradient(circle, ${this.state.avgColor}, white)`
+            backgroundImage: `radial-gradient(circle, ${this.state.avgHex}, white)`
           }}>
           <section>
-            <p>Upload an image to see the average color.</p>
-            <input type='file' onChange={this.fileSelectHandler}></input>
-            <button onClick={this.fileUploadHandler}>Upload</button>
+            <div style={{ padding: '.75em' }}>
+              <p>Upload an image to see the average color.</p>
+              <input type='file' onChange={this.fileSelectHandler}></input>
+              <button onClick={this.fileUploadHandler}>Upload</button>
+            </div>
           </section>
+          {!this.state.image && (
+            <section>
+              <Dropzone
+                onDrop={() => {
+                  alert('fuck you!');
+                }}
+              />
+            </section>
+          )}
           <section style={{ padding: '2em' }}>
             <img
               style={{
@@ -73,9 +93,10 @@ class App extends React.Component {
               alt=''
               src={this.state.image}></img>
           </section>
-          {this.state.avgColor && (
-            <section>
-              <span>The average color hex value is {this.state.avgColor}</span>
+          {this.state.avgHex && (
+            <section style={{ textAlign: 'left' }}>
+              <p>The average hex value is {this.state.avgHex}</p>
+              <p>The average rgb value is {this.state.avgRGB}</p>
             </section>
           )}
         </header>
