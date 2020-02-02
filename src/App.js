@@ -1,6 +1,6 @@
 import React from 'react';
-//import Dropzone from './Dropzone';
-import Input from './components/Input';
+import FileInput from './components/FileInput';
+import Button from './components/Button';
 import './App.css';
 
 class App extends React.Component {
@@ -73,14 +73,21 @@ class App extends React.Component {
           }}>
           <section>
             <p>Upload an image to determine the average color value.</p>
-            <Input
-              title='Browse'
-              onChange={this.fileSelectHandler}
-              file={this.state.file}
-            />
-            <button className='button' onClick={this.fileUploadHandler}>
-              Upload
-            </button>
+            <div className='btn-container'>
+              <FileInput
+                title='Browse'
+                onChange={this.fileSelectHandler}
+                accept='image/*'
+              />
+              <Button
+                color='primary'
+                title='Upload'
+                onClick={this.fileUploadHandler}
+              />
+            </div>
+            <footer>
+              <cite style={{ fontSize: '8px' }}>{this.state.file}</cite>
+            </footer>
           </section>
           <section style={{ padding: '2em' }}>
             <img
@@ -93,10 +100,12 @@ class App extends React.Component {
               src={this.state.image}></img>
           </section>
           {this.state.avgHex && (
-            <ColorDisplay
-              hexVal={this.state.avgHex}
-              rgbVal={this.state.avgRGB}
-            />
+            <div>
+              <ColorDisplay
+                hexVal={this.state.avgHex}
+                rgbVal={this.state.avgRGB}
+              />
+            </div>
           )}
         </header>
       </div>

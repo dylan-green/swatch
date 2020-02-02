@@ -14,24 +14,8 @@
   color: darkslategray;
 }
 
-.button {
-  background-color: #008cba; /* Green */
-  border: none;
-  color: white;
-  padding: 5px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 100px;
-}
-
-.button:hover {
-  cursor: pointer;
-  background-color: #00a7df;
-}
-
-.button:active {
-  cursor: pointer;
-  background-color: #008cba;
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
