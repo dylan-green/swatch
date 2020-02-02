@@ -4,9 +4,10 @@ import './FileInput.css';
 
 export default class FileInput extends React.Component {
   render() {
+    const theme = this.props.theme || 'primary';
     return (
       <div style={{ padding: '.5em' }}>
-        <label className='input'>
+        <label className={`input input-${theme}`}>
           {this.props.title}
           <input
             style={{ display: 'none' }}
@@ -21,6 +22,7 @@ export default class FileInput extends React.Component {
 }
 
 FileInput.propTypes = {
+  theme: PropTypes.string,
   title: PropTypes.string.isRequired,
   accept: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired

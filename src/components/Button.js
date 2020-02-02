@@ -5,11 +5,11 @@ import './Button.css';
 export default class Button extends React.Component {
   render() {
     const disabled = this.props.disabled;
-    const color = !disabled ? this.props.color || 'primary' : 'disabled';
+    const theme = disabled ? 'disabled' : this.props.theme || 'primary';
     return (
       <div style={{ padding: '.5em' }}>
         <button
-          className={`button button-${color}`}
+          className={`button button-${theme}`}
           onClick={!disabled && this.props.onClick}>
           {this.props.title}
         </button>
@@ -20,7 +20,7 @@ export default class Button extends React.Component {
 
 Button.propTypes = {
   disabled: PropTypes.bool,
-  color: PropTypes.string,
+  theme: PropTypes.string,
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 };

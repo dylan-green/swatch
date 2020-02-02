@@ -1,27 +1,4 @@
-.button-primary {
-  background-color: #008cba; /* Green */
-}
-
-.button-primary:hover {
-  background-color: #00a7df;
-}
-
-.button-primary:active {
-  background-color: #008cba;
-}
-
-.button-secondary {
-  background-color: #00ba9b;
-}
-
-.button-secondary:hover {
-  background-color: #01d3b0;
-}
-
-.button-secondary:active {
-  background-color: #00ba9b;
-}
-
+/* Core button styling */
 .button {
   border: none;
   color: white;
@@ -32,4 +9,30 @@
   cursor: pointer;
   font-size: 16px;
   border-radius: 100px;
+}
+
+/* primary theming */
+.button-primary {
+  background-color: #008cba; /* primary blue */
+}
+
+.button-primary:hover {
+  background-color: #00a7df;
+}
+
+.button-primary:active {
+  background-color: #008cba;
+}
+
+/* secondary theming */
+.button-secondary {
+  background-color: #00ba9b; /* secondary green */
+}
+
+.button-secondary:hover {
+  background-color: #01d3b0;
+}
+
+.button-secondary:active {
+  background-color: #00ba9b;
 }

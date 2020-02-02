@@ -16,6 +16,7 @@ class App extends React.Component {
   }
 
   fileSelectHandler = event => {
+    console.log(event.target.files[0].name);
     this.setState({
       file: URL.createObjectURL(event.target.files[0]),
       fileName: event.target.files[0].name
@@ -77,12 +78,13 @@ class App extends React.Component {
             <p>Upload an image to determine the average color value.</p>
             <div className='btn-container'>
               <FileInput
+                theme='secondary'
                 title='Browse'
                 onChange={this.fileSelectHandler}
                 accept='image/*'
               />
               <Button
-                color='primary'
+                theme='secondary'
                 title='Upload'
                 onClick={this.fileUploadHandler}
               />

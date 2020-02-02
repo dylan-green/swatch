@@ -1,5 +1,5 @@
+/* Core input theming */
 .input {
-  background-color: #008cba;
   border: none;
   color: white;
   padding: 5px 20px;
@@ -11,10 +11,28 @@
   border-radius: 100px;
 }
 
-.input:hover {
+/* primary theming */
+.input-primary {
+  background-color: #008cba;
+}
+
+.input-primary:hover {
   background-color: #00a7df;
 }
 
-.input:active {
+.input-primary:active {
   background-color: #008cba;
+}
+
+/* secondary theming */
+.input-secondary {
+  background-color: #00ba9b;
+}
+
+.input-secondary:hover {
+  background-color: #01d3b0;
+}
+
+.input-secondary:active {
+  background-color: #00ba9b;
 }
