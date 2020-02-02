@@ -93,7 +93,7 @@ class App extends React.Component {
               <cite style={{ fontSize: '8px' }}>{this.state.fileName}</cite>
             </footer>
           </section>
-          <section style={{ padding: '2em' }}>
+          <section style={{ padding: '1em' }}>
             <img
               style={{
                 maxWidth: '40%',
