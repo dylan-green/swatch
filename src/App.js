@@ -8,6 +8,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       file: null,
+      fileName: null,
       image: null,
       avgHex: null,
       avgRGB: null
@@ -16,7 +17,8 @@ class App extends React.Component {
 
   fileSelectHandler = event => {
     this.setState({
-      file: URL.createObjectURL(event.target.files[0])
+      file: URL.createObjectURL(event.target.files[0]),
+      fileName: event.target.files[0].name
     });
   };
 
@@ -86,7 +88,7 @@ class App extends React.Component {
               />
             </div>
             <footer>
-              <cite style={{ fontSize: '8px' }}>{this.state.file}</cite>
+              <cite style={{ fontSize: '8px' }}>{this.state.fileName}</cite>
             </footer>
           </section>
           <section style={{ padding: '2em' }}>
